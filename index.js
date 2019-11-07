@@ -12,6 +12,11 @@ function formatQueryParams(params) {
 
 function displayResults(responseJson) {
     console.log(responseJson);
+
+    if (responseJson.total === '0') {
+        $('#js-error-message').text('Something went wrong');
+    }
+
     $('#results-list').empty();
     for (let i = 0; i < responseJson.data.length; i++) {
         $('#results-list').append(
@@ -54,16 +59,25 @@ function watchForm() {
                 return(item);
             }
         })
-        $('#stateError').text("The following isn't a state: " + errorArr.join(","));
+
+        if (errorArr.length === 0){
+            $('#stateError').css('display', 'hidden');
+        }
+
+        if (errorArr.length > 0) {
+            $('#stateError').css('display', 'block');
+            $('#stateError').text("The following isn't a state: " + errorArr.join(","));
+        }
+
+
+
     })
     $('form').submit(event => {
         event.preventDefault();
         const state = $('#js-search-term').val().split(",");
         const limit = $('#js-max-results').val();
         getParksList(state, limit);
-        // if (responseJson.total === 0) {
-        //     $('js-error-message').text('Something went wrong')
-        // }
+
     });
 }
 
