@@ -50,9 +50,9 @@ function watchForm() {
         $(this).val(noWhiteSpace)
         let tempArr = $(this).val().split(",")
         let errorArr = tempArr.filter(item => {
-            // if (states.indexOf(item.toUpperCase()) === -1) {
-            //     return(item);
-            // }
+            if (states.indexOf(item.toUpperCase()) === -1) {
+                return(item);
+            }
         })
         $('#stateError').text("The following isn't a state: " + errorArr.join(","));
     })
