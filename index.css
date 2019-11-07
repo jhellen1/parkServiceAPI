@@ -28,6 +28,6 @@
       color: red;
   }
   
-  .hidden {
+  .hidden, .stateError {
     display: none;
   }
