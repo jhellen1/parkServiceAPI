@@ -62,13 +62,11 @@ function watchForm() {
 
         if (errorArr.length === 0){
             $('#stateError').css('display', 'hidden');
-            $('#js-error-message').addClass('hidden');
         }
 
         if (errorArr.length > 0) {
             $('#stateError').css('display', 'block');
-            $('#stateError').text("The following isn't a state: " + errorArr.join(","));
-            $('#js-error-message').removeClass('hidden');
+            $('#stateError').text("Error. The following isn't a state: " + errorArr.join(","));
         }
 
 
@@ -79,7 +77,6 @@ function watchForm() {
         const state = $('#js-search-term').val().split(",");
         const limit = $('#js-max-results').val();
         getParksList(state, limit);
-
     });
 }
 

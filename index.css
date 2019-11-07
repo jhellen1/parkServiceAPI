@@ -24,7 +24,7 @@
     margin: 0 auto;
   }
   
-  .error-message {
+  .error-message, #stateError {
       color: red;
   }
   
