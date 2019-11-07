@@ -62,11 +62,13 @@ function watchForm() {
 
         if (errorArr.length === 0){
             $('#stateError').css('display', 'hidden');
+            $('#js-error-message').addClass('hidden');
         }
 
         if (errorArr.length > 0) {
             $('#stateError').css('display', 'block');
             $('#stateError').text("The following isn't a state: " + errorArr.join(","));
+            $('#js-error-message').removeClass('hidden');
         }
 
 
