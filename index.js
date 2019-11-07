@@ -17,6 +17,10 @@ function displayResults(responseJson) {
         $('#js-error-message').text('Something went wrong');
     }
 
+    if (responseJson.total > '0') {
+        $('#js-error-message').text('')
+    }
+
     $('#results-list').empty();
     for (let i = 0; i < responseJson.data.length; i++) {
         $('#results-list').append(
